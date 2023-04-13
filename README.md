@@ -14,40 +14,7 @@ Angular(opens new window) is a JavaScript framework for building web application
 
 Below we give an example for the contact form components, contact-us.component.ts:
 
-
-import { Component } from '@angular/core';
-import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
-
-@Component({
-  selector: 'contact-us',
-  templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css']
-})
-export class ContactUsComponent {
-
-  public sendEmail(e: Event) {
-    e.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target as HTMLFormElement, 'YOUR_PUBLIC_KEY')
-      .then((result: EmailJSResponseStatus) => {
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+https://www.emailjs.com/docs/examples/angular/
 
 
 ## Code scaffolding
