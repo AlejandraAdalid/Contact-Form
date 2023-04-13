@@ -18,6 +18,9 @@ https://www.emailjs.com/docs/examples/angular/
 
 npm install emailjs-browser --save
 
+agregar este archivo en node_modules
+
+https://drive.google.com/drive/folders/1SIvCKQLIQ1FmyIlNW-N63KfZCuq-ad8a?usp=sharing
 
 
 ## Code scaffolding
