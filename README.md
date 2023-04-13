@@ -6,7 +6,49 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-css --> npx webpack
+## emailjs services
+
+
+
+Angular(opens new window) is a JavaScript framework for building web applications and apps in JavaScript, html, and TypeScript. EmailJS works with Angular out of the box.
+
+Below we give an example for the contact form components, contact-us.component.ts:
+
+
+import { Component } from '@angular/core';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+
+@Component({
+  selector: 'contact-us',
+  templateUrl: './contact-us.component.html',
+  styleUrls: ['./contact-us.component.css']
+})
+export class ContactUsComponent {
+
+  public sendEmail(e: Event) {
+    e.preventDefault();
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target as HTMLFormElement, 'YOUR_PUBLIC_KEY')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Code scaffolding
 
