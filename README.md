@@ -16,6 +16,9 @@ Below we give an example for the contact form components, contact-us.component.t
 
 https://www.emailjs.com/docs/examples/angular/
 
+npm install emailjs-browser --save
+
+
 
 ## Code scaffolding
 
