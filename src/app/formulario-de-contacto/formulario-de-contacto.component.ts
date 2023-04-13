@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+
 
 @Component({
   selector: 'app-formulario-de-contacto',
@@ -8,45 +10,24 @@ import { Component } from '@angular/core';
 
 export class FormularioDeContactoComponent {
 
+  enviado = false;
 
-nombre!: string;
-correo!: string;
-mensaje!: string;
-nombreObligatorio = false;
-correoObligatorio = false;
-nombreCompletoCompletado = false;
-correoCompletoCompletado = false;
-mensajeEnviado = false;
-
-onSubmit() {
-  if (!this.nombre) {
-    this.nombreObligatorio = true;
-  } else {
-    this.nombreObligatorio = false;
-    this.nombreCompletoCompletado = true;
-  }
-
-  if (!this.correo) {
-    this.correoObligatorio = true;
-  } else {
-    this.correoObligatorio = false;
-    this.correoCompletoCompletado = true;
-  }
-
-  if (this.nombre && this.correo)  {
-    // Aquí iría el código para enviar el mensaje
-    console.log('Mensaje enviado');
-    this.mensajeEnviado = true;
-    this.nombre = '';
-    this.correo = '';
-    this.mensaje = '';
-    this.nombreObligatorio = false;
-    this.correoObligatorio = false;
-    this.nombreCompletoCompletado = false;
-    this.correoCompletoCompletado = false;
+  public sendEmail(e: Event) {
+    e.preventDefault();
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target as HTMLFormElement, '_RepkulSbhJmTS25o')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+        this.enviado = true;
+        if (e.target) {
+          (e.target as HTMLFormElement).reset();        }
+      }, (error) => {
+        console.log(error.text);
+      });
   }
 }
-}
+
+
+
 
 
 
